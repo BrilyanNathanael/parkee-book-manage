@@ -5,7 +5,7 @@ import java.util.List;
 import com.parkee.rest_book_api.model.BookBorrower;
 
 public interface BookBorrowerService {
-	public BookBorrower findByBorrower_Ktp(String ktp);
+	public List<BookBorrower> findByKtp(String ktp);
 	public BookBorrower findByKtpAndIsbn(String ktp, String isbn);
 	public List<BookBorrower> findAllBooksWithBorrowers();
 	public List<BookBorrower> findAllBooksWithBorrowersOnTime();
