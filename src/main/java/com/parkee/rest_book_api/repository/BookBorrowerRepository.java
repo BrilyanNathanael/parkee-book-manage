@@ -9,7 +9,8 @@ import org.springframework.data.repository.query.Param;
 import com.parkee.rest_book_api.model.BookBorrower;
 
 public interface BookBorrowerRepository extends JpaRepository<BookBorrower, Integer>{
-	BookBorrower findByBorrower_Ktp(String ktp);
+	@Query("SELECT bb FROM BookBorrower bb WHERE bb.borrower.ktp = :ktp AND bb.is_returned = 'N'")
+	List<BookBorrower> findByKtp(@Param("ktp") String ktp);
 	   
 	@Query("SELECT bb FROM BookBorrower bb WHERE bb.borrower.ktp = :ktp AND bb.book.isbn = :isbn AND bb.is_returned = 'N'")
 	BookBorrower findByKtpAndIsbn(@Param("ktp") String ktp, @Param("isbn") String isbn);
