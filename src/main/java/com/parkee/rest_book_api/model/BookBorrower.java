@@ -22,11 +22,11 @@ public class BookBorrower {
 	@SequenceGenerator(name = "book_borrower_seq", sequenceName = "book_borrower_seq", initialValue = 1, allocationSize=1)
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "isbn", referencedColumnName = "isbn")
 	private Book book;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY, orphanRemoval = true)
 	@JoinColumn(name = "ktp", referencedColumnName = "ktp")
 	private Borrower borrower;
 	
