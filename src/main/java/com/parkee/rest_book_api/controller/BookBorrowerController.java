@@ -73,9 +73,9 @@ public class BookBorrowerController {
 			return "Out of stock.";
 		}
 		
-		BookBorrower oldBorrower = bookBorrowerService.findByBorrower_Ktp(bookBorrowerDTO.getKtp());
+		List<BookBorrower> oldBorrower = bookBorrowerService.findByKtp(bookBorrowerDTO.getKtp());
 		
-		if(oldBorrower != null && oldBorrower.getIs_returned().equals("N")) {
+		if(oldBorrower.size() > 0) {
 			return "You still have an unreturned book.";
 		}
 		
