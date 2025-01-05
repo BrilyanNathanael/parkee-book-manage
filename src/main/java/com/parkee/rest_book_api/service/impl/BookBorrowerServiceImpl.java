@@ -22,9 +22,9 @@ public class BookBorrowerServiceImpl implements BookBorrowerService {
 	}
 
 	@Override
-	public BookBorrower findByBorrower_Ktp(String ktp) {
+	public List<BookBorrower> findByKtp(String ktp) {
 		// TODO Auto-generated method stub
-		return bookBorrowerRepository.findByBorrower_Ktp(ktp);
+		return bookBorrowerRepository.findByKtp(ktp);
 	}
 
 	@Override
